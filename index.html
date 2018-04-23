@@ -2,11 +2,23 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no">
     <title>hwcool</title>
   </head>
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script type="text/javascript">
+      //获取手机屏幕的宽度
+      let htmlWidth = document.documentElement.clientWidth ||  document.body.clientWidth;
+      //获取html的DOM元素
+      let html = document.getElementsByTagName('html')[0];
+      //设置根元素的字体大小
+      html.style.fontSize = htmlWidth / 20 + 'px';
+      if(htmlWidth > 750){
+        htmlWidth=750
+      }
+    </script>
   </body>
 </html>
