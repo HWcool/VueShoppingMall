@@ -2,7 +2,7 @@
   <div class="container">
     <van-row>
       <Searchbar></Searchbar>
-      <!-- Swiper -->
+      <!-- Swiper 轮播 -->
       <div class="swiper-area">
         <van-swipe :autoplay="3000">
           <van-swipe-item v-for="(banner, index) in bannerPicArray" :key="index">
@@ -10,6 +10,34 @@
           </van-swipe-item>
         </van-swipe>
       </div>
+      <!-- 商品列表 -->
+      <van-row class="product-container">
+        <div class="product-list">
+          <a href="#">
+            <img src="" alt="">
+            <div>新鲜水果</div>
+          </a>
+          <a href="#">
+            <img src="" alt="">
+            <div>中外名酒</div>
+          </a>
+          <a href="#">
+            <img src="" alt="">
+            <div>营养奶品</div>
+          </a>
+          <a href="#">
+            <img src="" alt="">
+            <div>食品饮料</div>
+          </a>
+          <a href="#">
+            <img src="" alt="">
+            <div>个人护理</div>
+          </a>
+        </div>
+        <div class="tips">
+          
+        </div>
+      </van-row>
       <Footer></Footer>
     </van-row>
   </div>
@@ -36,9 +64,35 @@ export default {
 </script>
 
 <style scoped>
+@import url('../../css/reset.css');
+
 .swiper-area{
   width: 20rem;
   clear: both;
   overflow: hidden;
+}
+.product-container{
+  background-color: #EEEEEE;
+}
+.product-list{
+  padding: 0 5px;
+  display: flex;
+  flex-flow: nowrap;
+  justify-content: space-between;
+}
+.product-list a{
+  flex: 1;
+}y
+
+.product-list p{
+  font-size: 12px;
+  color: #696969;
+  text-align: center;
+}
+.tips{
+  height: 35px;
+  line-height: 35px;
+  padding: 0 5px;
+  text-align: center
 }
 </style>
