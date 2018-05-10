@@ -64,7 +64,7 @@ export default {
 </script>
 
 <style scoped>
-@import url('../../css/reset.css');
+
 
 .swiper-area{
   width: 10rem;

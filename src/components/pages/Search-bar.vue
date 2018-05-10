@@ -35,9 +35,9 @@ export default {
 .search-input{
     width:100%;
     height: .9rem;
-    border-top:0px;
-    border-left:0px;
-    border-right:0px;
+    border-top:0;
+    border-left:0;
+    border-right:0;
     border-bottom:1px solid #fff !important;
     background-color: #e5017d;
     color:#fff;

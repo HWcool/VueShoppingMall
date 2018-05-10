@@ -11,5 +11,5 @@ export default {};
 </script>
 
 <style>
-
+@import url('./css/reset.css');
 </style>

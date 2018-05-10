@@ -37,17 +37,14 @@
   flex: 1;
   text-align: center;
   font-size: 14px;
-  color: #888888
+  color: #888888;
+  padding-bottom: .133rem;
 }
 
 .menu-list span{
-  font-size: 26px
+  font-size: 24px
 }
 
-.menu-list p{
-  padding: 0;
-  margin-top: 0
-}
 .router-link-active {
   color: #e5017d;
 }
