@@ -48,4 +48,7 @@
   padding: 0;
   margin-top: 0
 }
+.router-link-active {
+  color: #e5017d;
+}
 </style>

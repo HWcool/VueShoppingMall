@@ -4,7 +4,7 @@ import ShoppingMall from '@/components/pages/ShoppingMall'
 import ProductList from '@/components/pages/ProductList'
 import ShoppingCart from '@/components/pages/shoppingCart'
 import Mine from '@/components/pages/mine'
-
+import 'lib-flexible'
 Vue.use(Router)
 
 export default new Router({

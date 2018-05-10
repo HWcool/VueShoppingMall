@@ -26,24 +26,26 @@ export default {
 </script>
 
 <style scoped>
-.search-bar {
-  height: 2.2rem;
-  background-color: #e5017d;
-  line-height: 2.2rem;
+.search-bar{
+    height:1.1rem;
+    background-color: #e5017d;
+    line-height: 1.1rem;
+    overflow: hidden;
 }
-.search-input {
-  width: 100%;
-  height: 1.3rem;
-  border-top: 0px;
-  border-left: 0px;
-  border-right: 0px;
-  border-bottom: 1px solid 1px !important;
-  background-color: #e5017d;
-  color: #fff;
+.search-input{
+    width:100%;
+    height: .9rem;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+    border-bottom:1px solid #fff !important;
+    background-color: #e5017d;
+    color:#fff;
+    font-size: 12px
 }
 .location-icon {
-  padding-top: 0.8rem;
-  padding-left: 0.6rem;
+  padding-top: 0.3rem;
+  padding-left: 0.4rem;
   color: #ffffff;
   font-size: 22px
 }

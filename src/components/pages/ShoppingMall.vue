@@ -67,9 +67,14 @@ export default {
 @import url('../../css/reset.css');
 
 .swiper-area{
-  width: 20rem;
+  width: 10rem;
   clear: both;
   overflow: hidden;
+}
+
+.swiper-area img{
+  display: block;
+  height: 4.9rem
 }
 .product-container{
   background-color: #EEEEEE;
@@ -88,11 +93,5 @@ export default {
   font-size: 12px;
   color: #696969;
   text-align: center;
-}
-.tips{
-  height: 35px;
-  line-height: 35px;
-  padding: 0 5px;
-  text-align: center
 }
 </style>
