@@ -28,17 +28,19 @@
 <style scoped>
 .footer{
   display: flex;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+  border-top: 1px solid #eee;
+  background: #fff
 }
 .menu-list{
   flex: 1;
   text-align: center;
   font-size: 14px;
   color: #888888;
-  padding-bottom: .133rem;
+  padding: .133rem;
 }
 
 .menu-list span{

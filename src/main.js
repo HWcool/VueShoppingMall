@@ -14,7 +14,6 @@ fastclick.attach(document.body)
 Vue.use(VueLazyload, {
   loading: require('./common/imgages/loading.gif')
 })
-
 //使用vantUI组件
 Vue.use(Button).use(Circle).use(Col).use(Row).use(List).use(Swipe).use(SwipeItem).use(Lazyload)
 /* eslint-disable no-new */

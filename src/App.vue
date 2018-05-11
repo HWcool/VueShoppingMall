@@ -12,4 +12,8 @@ export default {};
 
 <style>
 @import url('./css/reset.css');
+body{
+  background: #eeeeee;
+  overflow-x: hidden
+}
 </style>
