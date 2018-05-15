@@ -6,7 +6,6 @@
 
 <script>
 import '@/css/iconfont.css'
-import Searchbar from '@/components/pages/Search-bar'
 export default {};
 </script>
 

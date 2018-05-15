@@ -33,12 +33,14 @@
   left: 0;
   right: 0;
   border-top: 1px solid #eee;
-  background: #fff
+  background: #fff;
+  box-shadow: 0 0 10px 0 hsla(0,6%,58%,.6);
+  font-size: 14px;
+  z-index: 99;  
 }
 .menu-list{
   flex: 1;
   text-align: center;
-  font-size: 14px;
   color: #888888;
   padding: .133rem;
 }

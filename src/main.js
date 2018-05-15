@@ -4,7 +4,7 @@ import router from './router'
 import fastclick from 'fastclick'
 import VueLazyload from 'vue-lazyload'
 import 'lib-flexible'
-import {Button, Row, Circle, Col, List, Swipe, SwipeItem, Lazyload} from 'vant'
+import {Button, Row, Circle, Col, List, Swipe, SwipeItem, Lazyload, Tab, Tabs} from 'vant'
 Vue.config.productionTip = false;
 
 //fastclick 初始化
@@ -15,7 +15,7 @@ Vue.use(VueLazyload, {
   loading: require('./common/imgages/loading.gif')
 })
 //使用vantUI组件
-Vue.use(Button).use(Circle).use(Col).use(Row).use(List).use(Swipe).use(SwipeItem).use(Lazyload)
+Vue.use(Button).use(Circle).use(Col).use(Row).use(List).use(Swipe).use(SwipeItem).use(Lazyload).use(Tab).use(Tabs)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

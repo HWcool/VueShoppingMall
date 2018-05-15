@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <van-row>
-      <Searchbar></Searchbar>
+      <SearchBar></SearchBar>
       <!-- Swiper 轮播 -->
       <div class="swiper-area">
         <van-swipe :autoplay="3000">
@@ -37,32 +37,22 @@
         </div>
       </div>
       <!-- 楼层区域 -->
-      <div class="goods-floor">
-        <div class="floor-one-title">
-          <div class="floor-number">
-            <span>1F</span>
-          </div>
-          <span class="floor-name">休闲食品</span>
-        </div>
-        <div class="floor-anomaly">
-          <div class="floor-left"><img :src="floor_1.image" width="100%"></div>
-          <div class="floor-right">
-            <div><img :src="floor_2.image" width="100%"></div>
-            <div><img :src="floor_3.image" width="100%"></div>
-          </div>
-        </div>
-      </div>
+      <FloorComponent :floorData="floor1" :floorTitle="floorName.floor1"></FloorComponent>
+      <FloorComponent :floorData="floor2" :floorTitle="floorName.floor2"></FloorComponent>
+      <FloorComponent :floorData="floor3" :floorTitle="floorName.floor3"></FloorComponent>
+      <!-- 底部菜单 -->
       <Footer></Footer>
     </van-row>
   </div>
 </template>
 
 <script>
-import Searchbar from "./Search-bar";
-import Footer from "./Footer";
-import axios from "axios";
-import "swiper/dist/css/swiper.css";
-import { swiper, swiperSlide } from "vue-awesome-swiper";
+import axios from "axios"
+import "swiper/dist/css/swiper.css"
+import SearchBar from "@/component/SearchBar"
+import Footer from '@/component/Footer'
+import FloorComponent from '@/component/Floor'
+import { swiper, swiperSlide } from "vue-awesome-swiper"
 
 export default {
   data() {
@@ -75,21 +65,21 @@ export default {
       tips: "",
       recommendGoods: [],
       floor1: [],
-      floor_1: "",
-      floor_2: "",
-      floor_3: ""
+      floor2: [],
+      floor3: [],
+      floorName: {}
     };
   },
   components: {
-    Searchbar,
+    SearchBar,
     Footer,
     swiper,
-    swiperSlide
+    swiperSlide,
+    FloorComponent
   },
   created() {
     axios({
-      url:
-        "https://easy-mock.com/mock/5aeb0cfe671cac5c2b7aa0ea/example/easyVue/index",
+      url:"https://easy-mock.com/mock/5aeb0cfe671cac5c2b7aa0ea/example/easyVue/index",
       method: "get"
     })
       .then(response => {
@@ -100,9 +90,9 @@ export default {
           this.tips = response.data.data.advertesPicture;
           this.recommendGoods = response.data.data.recommend;
           this.floor1 = response.data.data.floor1;
-          this.floor_1 = this.floor1[0];
-          this.floor_2 = this.floor1[1];
-          this.floor_3 = this.floor1[2];
+          this.floor2 = response.data.data.floor2;
+          this.floor3 = response.data.data.floor3;
+          this.floorName = response.data.data.floorName;
         }
       })
       .catch(error => {
@@ -117,6 +107,7 @@ export default {
   width: 10rem;
   clear: both;
   overflow: hidden;
+  padding-top: 1.1rem; 
 }
 
 .swiper-area img {
@@ -167,49 +158,5 @@ export default {
 .recommend-item span {
   text-decoration: line-through;
   color: #bebebe;
-}
-.goods-floor {
-  background: #fff;
-}
-.floor-one-title {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-  background: #eeeeee;
-  height: 1rem;
-}
-.floor-one-title .floor-number {
-  background: #c05328;
-  border-radius: 50%;
-  color: #fff;
-  margin-right: 0.267rem;
-  text-align: center;
-  width: 0.64rem;
-  height: 0.64rem;
-}
-.floor-one-title .floor-number span {
-  line-height: 0.64rem;
-}
-
-.floor-one-title .floor-name {
-  color: #c05328;
-}
-.floor-anomaly {
-  display: flex;
-  flex-direction: row;
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
-}
-.floor-anomaly div {
-  width: 5rem;
-  box-sizing: border-box;
-}
-.floor-left {
-  border-right: 1px solid #ddd;
-}
-.floor-right {
-  border-bottom: 1px solid #ddd;
 }
 </style>
