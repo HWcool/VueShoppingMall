@@ -6,11 +6,13 @@
 
 <script>
 import '@/css/iconfont.css'
+
 export default {};
 </script>
 
 <style>
 @import url('./css/reset.css');
+@import './common/css/vant.css';
 body{
   background: #eeeeee;
   overflow-x: hidden
