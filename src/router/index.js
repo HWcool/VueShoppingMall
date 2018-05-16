@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import ShoppingMall from '@/components/pages/ShoppingMall'
-import ProductList from '@/components/pages/ProductList'
-import ShoppingCart from '@/components/pages/shoppingCart'
-import Mine from '@/components/pages/mine'
-import 'lib-flexible'
 Vue.use(Router)
+
+const ShoppingMall = () => import('@/components/pages/ShoppingMall')
+const ProductList = () => import('@/components/pages/ProductList')
+const ShoppingCart = () => import('@/components/pages/ShoppingCart')
+const Mine = () => import('@/components/pages/Mine')
 
 export default new Router({
   routes: [
