@@ -1,17 +1,15 @@
 <template>
   <!--search bar layout-->
-  <div>
-    <div class="search-bar">
-      <van-row gutter="5">
-          <van-col span="3">
-            <span class="location-icon icon icon-shouhuodizhi"></span>
-          </van-col>
-          <van-col span="16">
-            <input type="text" class="search-input" placeholder="查找"/>
-          </van-col>
-          <van-col span="5"><van-button size="mini">查找</van-button></van-col>
-      </van-row>
-    </div>
+  <div class="search-bar">
+    <van-row gutter="5">
+        <van-col span="3">
+          <span class="location-icon icon icon-shouhuodizhi"></span>
+        </van-col>
+        <van-col span="16">
+          <input type="text" class="search-input" placeholder="查找"/>
+        </van-col>
+        <van-col span="5"><van-button size="mini">查找</van-button></van-col>
+    </van-row>
   </div>
 </template>
 
@@ -46,7 +44,7 @@ export default {
     border-right:0;
     border-bottom:1px solid #fff !important;
     background-color: #e5017d;
-    color:#666;
+    color:#fff;
     font-size: 12px
 }
 .location-icon {

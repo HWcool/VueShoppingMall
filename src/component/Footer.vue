@@ -41,14 +41,12 @@
 .menu-list{
   flex: 1;
   text-align: center;
-  color: #888888;
+  color: #888;
   padding: .133rem;
 }
-
 .menu-list span{
   font-size: 24px
 }
-
 .router-link-active {
   color: #e5017d;
 }

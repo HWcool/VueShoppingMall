@@ -1,0 +1,6 @@
+.header-list .van-tabs--scrollable .van-tab{
+  flex: 0 0 20% !important;
+}
+.header-list .van-switch{
+  font-size: 22px !important;
+}

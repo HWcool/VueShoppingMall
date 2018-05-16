@@ -29,8 +29,8 @@
               <swiper-slide v-for="(item, index) in recommendGoods" :key="index">
                   <div class="recommend-item">
                     <img :src="item.image" width="80%" />
-                    <p>￥{{item.price}}</p>
-                    <span>￥{{item.mallPrice}}</span>
+                    <p>{{item.price | toMoney}}</p>
+                    <span>{{item.mallPrice | toMoney}}</span>
                   </div>
               </swiper-slide>
           </swiper>
@@ -53,7 +53,6 @@ import SearchBar from "@/component/SearchBar"
 import Footer from '@/component/Footer'
 import FloorComponent from '@/component/Floor'
 import { swiper, swiperSlide } from "vue-awesome-swiper"
-
 export default {
   data() {
     return {
@@ -67,7 +66,7 @@ export default {
       floor1: [],
       floor2: [],
       floor3: [],
-      floorName: {}
+      floorName: {},
     };
   },
   components: {
@@ -93,11 +92,19 @@ export default {
           this.floor2 = response.data.data.floor2;
           this.floor3 = response.data.data.floor3;
           this.floorName = response.data.data.floorName;
+          this.imagesData =response.data.data.hot
         }
       })
       .catch(error => {
         console.log(error);
       });
+  },
+  filters: {
+    toMoney: function(val) {
+      if(!val) { return '' }
+      val = val.toFixed(2);
+      return '￥' + val;
+    }
   }
 };
 </script>
@@ -153,7 +160,7 @@ export default {
 }
 
 .recommend-item p {
-  font-size: 16px;
+  font-size: 14px;
 }
 .recommend-item span {
   text-decoration: line-through;
