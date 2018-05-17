@@ -25,7 +25,7 @@ export default {
 
 <style scoped>
 .search-bar{
-    width: 10rem;
+    width: 100%;
     height:1.1rem;
     background-color: #e5017d;
     opacity: .8;

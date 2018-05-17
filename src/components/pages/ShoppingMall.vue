@@ -22,15 +22,15 @@
       </div>
       <!-- 商品推荐区域 -->
       <div class="recommend-area">
-        <div class="recommend-title">商品推荐</div>
+        <div class="floor-title">商品推荐</div>
         <div class="recommend-main">
           <!-- swiper -->
           <swiper :options="swiperOption">
               <swiper-slide v-for="(item, index) in recommendGoods" :key="index">
                   <div class="recommend-item">
                     <img :src="item.image" width="80%" />
-                    <p>{{item.price | toMoney}}</p>
-                    <span>{{item.mallPrice | toMoney}}</span>
+                    <p>￥{{item.price | moneyFilter}}</p>
+                    <span>￥{{item.mallPrice | moneyFilter}}</span>
                   </div>
               </swiper-slide>
           </swiper>
@@ -40,6 +40,13 @@
       <FloorComponent :floorData="floor1" :floorTitle="floorName.floor1"></FloorComponent>
       <FloorComponent :floorData="floor2" :floorTitle="floorName.floor2"></FloorComponent>
       <FloorComponent :floorData="floor3" :floorTitle="floorName.floor3"></FloorComponent>
+      <!-- 热卖商品区域 -->
+      <van-row gutter="0" class="hot-area">
+          <div class="floor-title">热卖商品</div>
+          <van-col span="12" v-for="(item,index) in hotGoods" :key="index">
+              <HotGoods :goodsImage="item.image" :goodsName="item.name" :goodsPrice="item.price"></HotGoods>
+          </van-col>
+      </van-row>
       <!-- 底部菜单 -->
       <Footer></Footer>
     </van-row>
@@ -47,12 +54,14 @@
 </template>
 
 <script>
-import axios from "axios"
 import "swiper/dist/css/swiper.css"
+import axios from "axios"
 import SearchBar from "@/component/SearchBar"
 import Footer from '@/component/Footer'
 import FloorComponent from '@/component/Floor'
+import HotGoods from '@/component/HotGoods'
 import { swiper, swiperSlide } from "vue-awesome-swiper"
+import {toMoney} from '@/common/js/util'
 export default {
   data() {
     return {
@@ -67,6 +76,7 @@ export default {
       floor2: [],
       floor3: [],
       floorName: {},
+      hotGoods:[],
     };
   },
   components: {
@@ -74,7 +84,8 @@ export default {
     Footer,
     swiper,
     swiperSlide,
-    FloorComponent
+    FloorComponent,
+    HotGoods
   },
   created() {
     axios({
@@ -92,7 +103,7 @@ export default {
           this.floor2 = response.data.data.floor2;
           this.floor3 = response.data.data.floor3;
           this.floorName = response.data.data.floorName;
-          this.imagesData =response.data.data.hot
+          this.hotGoods = response.data.data.hotGoods;
         }
       })
       .catch(error => {
@@ -100,10 +111,8 @@ export default {
       });
   },
   filters: {
-    toMoney: function(val) {
-      if(!val) { return '' }
-      val = val.toFixed(2);
-      return '￥' + val;
+    moneyFilter: function(val) {
+      return toMoney(val)
     }
   }
 };
@@ -111,7 +120,7 @@ export default {
 
 <style scoped>
 .swiper-area {
-  width: 10rem;
+  width: 100%;
   clear: both;
   overflow: hidden;
   padding-top: 1.1rem; 
@@ -143,7 +152,7 @@ export default {
   margin-top: 0.2rem;
   background: #fff;
 }
-.recommend-title {
+.floor-title {
   font-size: 14px;
   color: #db5b52;
   padding-left: 0.3rem;
@@ -165,5 +174,9 @@ export default {
 .recommend-item span {
   text-decoration: line-through;
   color: #bebebe;
+}
+.hot-area{
+  background: #fff;
+  box-sizing: border-box;
 }
 </style>

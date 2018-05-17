@@ -10,13 +10,13 @@ UI： vant有赞
 模拟数据： ease-mock.js
 ```
 
-##说明
+### 说明
 ``` bash
  主要目的是把自己学的东西整合一下，尝试做一个以vue.js作为数据框架的商城项目，功能正在逐步完善中。
  欢迎提意见和start!!
 ```
 
-##项目结构
+## 项目结构
 <pre>
 
 │  .gitattributes
@@ -53,7 +53,8 @@ git clone https://github.com/HWcool/SmileVueApp.git
 
 ``` bash
 npm install
->安装依赖
+安装依赖
+
 ```
 
 ``` bash

@@ -1,6 +1,6 @@
 <template>
   <div class="goods-floor">
-    <div class="floor-one-title">
+    <div class="floor-title">
       <span class="floor-name">{{ floorTitle }}</span>
     </div>
     <div class="floor-anomaly">
@@ -43,15 +43,13 @@ export default {
 .goods-floor {
   background: #fff;
 }
-.floor-one-title {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+.floor-title {
   font-size: 16px;
   background: #eeeeee;
   height: 1rem;
+  line-height: 1rem;
   color: #c05328;
+  text-align: center
 }
 .floor-anomaly {
   display: flex;
@@ -59,8 +57,8 @@ export default {
   background-color: #fff;
   border-bottom: 1px solid #ddd;
 }
-.floor-anomaly div {
-  width: 5rem;
+.floor-left, .floor-left{
+  flex: 0 0 50%;
   box-sizing: border-box;
 }
 .floor-left {
@@ -76,7 +74,7 @@ export default {
   background: #fff;
 }
 .ruleGoods div{
-  width: 5rem;
+  width: 50%;
   box-sizing: border-box;
   border-bottom: 1px solid #ddd
 }

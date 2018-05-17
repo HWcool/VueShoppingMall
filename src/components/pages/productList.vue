@@ -33,9 +33,9 @@
          <van-list class="goods-detail">
           <div class="goods-wrap" v-for="(item,index) in imagesData" :key="index">
             <img v-lazy="item.image" width="100%" />
-            <p class="goods-name">{{ item.name }}</p>
-            <span class="mallPrice">{{ item.price | toMoney }}</span>
-            <span class="price">{{ item.mallPrice | toMoney }}</span>
+            <div class="goods-name">{{ item.name }}</div>
+            <span class="mallPrice">￥{{ item.price | moneyFilter }}</span>
+            <span class="price">￥{{ item.mallPrice | moneyFilter }}</span>
           </div>
         </van-list>
       </div>
@@ -48,6 +48,7 @@
   import SearchBar from '@/component/SearchBar'
   import Footer from '@/component/Footer'
   import axios from 'axios'
+  import {toMoney} from '@/common/js/util'
   export default {
     components:{SearchBar,Footer},
     data() {
@@ -77,10 +78,8 @@
 
     },
     filters:{
-      toMoney:function(val) {
-        if(!val) {return ''}
-        val = val.toFixed(2);
-        return '￥' + val;
+      moneyFilter:function(val) {
+        return toMoney(val)
       }
     }
   }
@@ -154,10 +153,11 @@
     padding-bottom: .4rem
   }
   .goods-name{
+    padding: 0 .107rem;
     color: #C66973;
     font-size: 14px;
     line-height: 1.25;
-    margin-bottom: .133rem
+    margin-bottom: .133rem;
   }
   .mallPrice{
     color: #C66973;
