@@ -1,21 +1,61 @@
-# hwcol
-
-> An app built using Vue.js
-
-## Build Setup
+# 基于Vue.js开发的移动端商城app
 
 ``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+>用到的技术内容简介：
+webpack脚手架工具
+数据驱动框架： vue.js
+路由： vue-ruoter
+ajax: axios
+UI： vant有赞
+模拟数据： ease-mock.js
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+##说明
+
+>把自己学的东西整合一下，尝试做一个以vue.js作为数据框架的商城项目，功能正在逐步完善中。
+
+
+##项目结构
+<pre>
+
+│  .gitattributes
+│  .gitignore               # 忽略无需git控制的文件  比如 node_modules
+|  build                    #webpack环境配置文件
+│  config                   #webpack环境配置文件
+|  src                      #主web项目目录
+│  static                   # 静态文件目录
+│  index.html               # 首页模板
+│  package.json             # 项目配置
+│  README.md                # 项目说明
+│  webpack.config.js        # webpack 配置文件
+│
+| 主要文件
+├─src
+│  |  assets/images         # 静态文件
+│  │  css                   # css文件
+│  |  components            # 组件
+|  |  common                # 公用样式及封装的js工具函数
+|  |  component             # 页面组件
+|  |  components/pages      # 页面
+│  │  router                # 路由配置文件夹
+│  │  App.vue               # 主vue
+│  │  main.js               # vue初始化配置文件
+
+</pre>
+
+
+## 运行步骤
+``` bash
+#github仓库url
+git clone https://github.com/HWcool/SmileVueApp.git
+```
+
+``` bash
+npm install
+>安装依赖
+```
+
+``` bash
+npm run dev   ----- localhost:8088
+npm run build ----- 打包项目
+```
