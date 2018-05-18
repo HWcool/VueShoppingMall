@@ -6,7 +6,7 @@
           <span class="location-icon icon icon-shouhuodizhi"></span>
         </van-col>
         <van-col span="16">
-          <input type="text" class="search-input" placeholder="查找"/>
+          <input type="text" @click="searchClick" class="search-input" placeholder="优惠大酬宾满300减88"/>
         </van-col>
         <van-col span="5"><van-button size="mini">查找</van-button></van-col>
     </van-row>
@@ -19,6 +19,13 @@ export default {
     return {
       locationIcon: require("../assets/images/location.png")
     };
+  },
+  methods:{
+    searchClick(){
+      this.$router.push({
+        path: 'Searched'
+      })
+    }
   }
 };
 </script>
@@ -28,13 +35,14 @@ export default {
     width: 100%;
     height:1.1rem;
     background-color: #e5017d;
-    opacity: .8;
+    color: #666;
+    opacity: .7;
     line-height: 1.1rem;
     overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 9999;
+    z-index: 99;
 }
 .search-input{
     width:100%;
@@ -43,14 +51,14 @@ export default {
     border-left:0;
     border-right:0;
     border-bottom:1px solid #fff !important;
-    background-color: #e5017d;
-    color:#fff;
-    font-size: 12px
+    background-color: transparent;
+    font-size: 12px;
+    z-index: 999;
 }
 .location-icon {
   padding-top: 0.3rem;
   padding-left: 0.4rem;
-  color: #ffffff;
+  color: #fff;
   font-size: 22px
 }
 </style>

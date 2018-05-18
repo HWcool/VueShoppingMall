@@ -4,10 +4,13 @@
 用到的技术内容简介：
 webpack脚手架工具
 数据驱动框架： vue.js
-路由： vue-ruoter
+路由： vue-router
 ajax: axios
-UI： vant有赞
+UI： vant有赞 https://www.youzanyun.com/zanui
 模拟数据： ease-mock.js
+屏幕适配： flexible.js
+画面布局方式：flex
+css后处理： postcss
 ```
 
 ## 说明
