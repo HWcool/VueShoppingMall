@@ -62,6 +62,7 @@ import FloorComponent from '@/component/Floor'
 import HotGoods from '@/component/HotGoods'
 import { swiper, swiperSlide } from "vue-awesome-swiper"
 import {toMoney} from '@/common/js/util'
+import URL from '@/api/serviceAPI.config'
 export default {
   data() {
     return {
@@ -89,26 +90,29 @@ export default {
   },
   created() {
     axios({
-      url:"https://easy-mock.com/mock/5aeb0cfe671cac5c2b7aa0ea/example/easyVue/index",
+      url: URL.getShoppingMallInfo,
       method: "get"
     })
-      .then(response => {
-        console.log(response.data.data);
-        if (response.status == 200) {
-          this.category = response.data.data.category;
-          this.bannerPicArray = response.data.data.slides;
-          this.tips = response.data.data.advertesPicture;
-          this.recommendGoods = response.data.data.recommend;
-          this.floor1 = response.data.data.floor1;
-          this.floor2 = response.data.data.floor2;
-          this.floor3 = response.data.data.floor3;
-          this.floorName = response.data.data.floorName;
-          this.hotGoods = response.data.data.hotGoods;
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    .then(response => {
+      console.log(response.data.data);
+      if (response.status == 200) {
+        this.category = response.data.data.category;
+        this.bannerPicArray = response.data.data.slides;
+        this.tips = response.data.data.advertesPicture;
+        this.recommendGoods = response.data.data.recommend;
+        this.floor1 = response.data.data.floor1;
+        this.floor2 = response.data.data.floor2;
+        this.floor3 = response.data.data.floor3;
+        this.floorName = response.data.data.floorName;
+        this.hotGoods = response.data.data.hotGoods;
+      }
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  },
+  methods:{
+    
   },
   filters: {
     moneyFilter: function(val) {
@@ -125,7 +129,6 @@ export default {
   overflow: hidden;
   padding-top: 1.1rem; 
 }
-
 .swiper-area img {
   display: block;
   height: 4.9rem;
@@ -138,6 +141,7 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: space-between;
 }
 .type-bar div {
   padding: 0.1rem;

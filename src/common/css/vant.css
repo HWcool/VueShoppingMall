@@ -4,3 +4,7 @@
 .header-list .van-switch{
   font-size: 22px !important;
 }
+.back-bar .van-nav-bar .van-icon,
+.back-bar .van-nav-bar__text{
+  color: #888888
+}

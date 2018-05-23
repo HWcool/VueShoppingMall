@@ -49,6 +49,8 @@
   import Footer from '@/component/Footer'
   import axios from 'axios'
   import {toMoney} from '@/common/js/util'
+  import URL from '@/api/serviceAPI.config'
+
   export default {
     components:{SearchBar,Footer},
     data() {
@@ -62,9 +64,11 @@
       }
     },
     created(){
+      console.log(111)
+      console.log(this.products)
       axios({
+        url: URL.getShoppingMallInfo,
         method: 'get',
-        url:"https://easy-mock.com/mock/5aeb0cfe671cac5c2b7aa0ea/example/easyVue/index",
       })
       .then(res=>{
         console.log(res);
@@ -75,7 +79,7 @@
       })
     },
     methods:{
-
+      
     },
     filters:{
       moneyFilter:function(val) {
