@@ -8,7 +8,7 @@ webpack脚手架工具
 ajax: axios
 UI： vant有赞 https://www.youzanyun.com/zanui
 模拟数据： ease-mock.js
-屏幕适配： flexible.js
+屏幕适配： flexible.js + rem
 画面布局方式：flex
 css后处理： postcss
 ```
@@ -35,6 +35,7 @@ css后处理： postcss
 │
 | 主要文件
 ├─src
+|  |  api                   # api
 │  |  assets/images         # 静态文件
 │  │  css                   # css文件
 │  |  components            # 组件
@@ -42,7 +43,8 @@ css后处理： postcss
 |  |  component             # 页面组件
 |  |  components/pages      # 页面
 │  │  router                # 路由配置文件夹
-│  │  App.vue               # 主vue
+|  |  store                 # vuex
+│  │  App.vue               # 主vue组件
 │  │  main.js               # vue初始化配置文件
 
 </pre>
