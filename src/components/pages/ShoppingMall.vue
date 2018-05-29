@@ -144,6 +144,7 @@ export default {
   justify-content: space-between;
 }
 .type-bar div {
+  flex: 1;
   padding: 0.1rem;
   font-size: 12px;
   text-align: center;
