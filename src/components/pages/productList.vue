@@ -4,7 +4,7 @@
     <!-- 商品分类区域 -->
     <div class="header-list">
       <van-tabs v-model="active">
-        <van-tab v-for="(item,index) in headerData" :title="item" :key="index">
+        <van-tab v-for="(item,index) in headerData" :title="item" :key="index" sticky>
           <div class="Condition-selection">
             <div class="selection">
               <span>销量：</span>
