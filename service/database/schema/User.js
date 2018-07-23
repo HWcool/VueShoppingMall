@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 let ObjectId = Schema.Types.ObjectId
 const bcrypt = require('bcrypt')
-
+const SALT_WORK_FACTOR = 10
 //创建Schema
 const userSchema = new Schema({
   userId: ObjectId,
@@ -12,7 +12,7 @@ const userSchema = new Schema({
   lastLoginAt: { type: Date, default: Date.now() }
 })
 
-//每次存储数据时都要执行
+//每次存储数据时都要执行 加盐加密操作
 userSchema.pre('save', function(next){
   //let user = this
   console.log(this)

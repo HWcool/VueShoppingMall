@@ -17,7 +17,7 @@
 export default {
   data() {
     return {
-      locationIcon: require("../assets/images/location.png")
+      
     };
   },
   methods:{
