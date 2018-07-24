@@ -6,6 +6,7 @@ router.get('/', async (ctx) => {
   ctx.body = "这是用户操作首页"
 })
 
+//用户注册接口
 router.post('/register', async (ctx) => {
   //gongoose 建模
   const User = mongoose.model('User')
@@ -23,5 +24,35 @@ router.post('/register', async (ctx) => {
   })
 })
 
+//用户登录
+router.post('/login',async(ctx)=>{
+    let loginUser = ctx.request.body
+    console.log(loginUser)
+    let userName = loginUser.userName
+    let password = loginUser.password
 
+    //引入User的model
+    const User = mongoose.model('User')
+
+    await User.findOne({userName:userName}).exec().then(async(result)=>{
+        console.log(result)
+        if(result){
+            let newUser = new User()
+            await newUser.comparePassword(password, result.password)
+            .then(isMatch=>{
+                ctx.body={code:200,message:isMatch}
+            })
+            .catch(error=>{
+                console.log(error)
+                ctx.body={code:500,message:error}
+            })
+        }else{
+            ctx.body={code:200,message:'用户名不存在'}
+        }
+    }).catch(error=>{
+        console.log(error)
+        ctx.body={code:500,message:error}
+    })
+
+})
 module.exports = router

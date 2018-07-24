@@ -47,7 +47,7 @@
 .menu-list span{
   font-size: 24px
 }
-.router-link-active {
+.router-link-exact-active {
   color: #e5017d;
 }
 </style>
