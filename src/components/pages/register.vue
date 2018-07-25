@@ -17,16 +17,20 @@
             :error-message = 'errorusername'
         />
 
-        <van-field 
+        <van-field
             v-model="password"
             type="password"
             label="密码" 
             placeholder="请输入密码"
             required
             :error-message = 'errorpassword'
+            v-on:keyup.enter = 'registerUserAction'
         />
         <div class="register-button">
             <van-button type="primary" @click="registerUserAction" :loading="openloading" size="large">马上注册</van-button>
+        </div>
+        <div class="register-button">
+            <van-button type="primary" @click="goLoginPage"  size="large">已有账户，去登录</van-button>
         </div>
        </div>
   </div>
@@ -96,6 +100,9 @@ export default {
         this.errorpassword = "";
       }
       return isTrue;
+    },
+    goLoginPage() {
+      this.$router.push('/login')
     }
   }
 };

@@ -24,6 +24,11 @@ import Footer from '@/component/Footer'
     },
     created() {
       this.userName = localStorage.getItem('userInfo')
+      setTimeout(()=> {
+        if(this.userName == '' || this.userName == null) {
+          this.$router.push('/register')
+        }
+      },200)
     },
     methods:{
       goBack(){

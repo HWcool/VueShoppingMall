@@ -8,7 +8,7 @@ const ShoppingCart = () => import('@/components/pages/ShoppingCart')
 const Mine = () => import('@/components/pages/Mine')
 const Searched = () => import('@/components/pages/Searched')
 const Register = () => import('@/components/pages/Register')
-const Login = () => import('@/components/pages/login')
+const Login = () => import('@/components/pages/Login')
 
 export default new Router({
   routes: [
