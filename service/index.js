@@ -13,9 +13,11 @@ app.use(bodyParser())
 app.use(cors())
 
 const user = require('./appAPI/User.js')
+const goods = require('./appAPI/Goods')
 //装载所有的子路由
 let router = new Router()
 router.use('/user',user.routes())
+router.use('/goods', goods.routes())
 
 
 //加载路由的中间件
