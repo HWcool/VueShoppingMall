@@ -8,7 +8,8 @@ const mongoose = require('mongoose')
 const fs = require('fs')
 
 //定义路由信息
-router.get('/insetAllgoodsInfo', async(ctx) => {
+//插入商品数据
+router.get('/insetAllgoodsInfo', async (ctx) => {
   //使用fs模块地区文件
   //这里的路径是因为是在index下执行的，所以是相对于index.js文件的
   fs.readFile('./dataJSON/newGoods.json', 'utf8', (error, data) => {
@@ -31,6 +32,54 @@ router.get('/insetAllgoodsInfo', async(ctx) => {
     })
   })
   ctx.body = '正在插入数据...'
+})
+
+//插入商品数据
+router.get('/insetAllCategoryInfo', async (ctx) => {
+  fs.readFile('./dataJSON/category.json', 'utf8', (error, data) => {
+    data = JSON.parse(data)
+    const Category = mongoose.model('Category')
+    data.RECORDS.map((value, index) => {
+      let newCategory = new Category(value);
+      newCategory.save().then(() => {
+        console.log('数据插入成功，请查看数据库')
+      }).catch(error => {
+        console.log('数据插入失败！')
+      })
+    })
+  })
+  ctx.body = '正在插入数据...'
+})
+
+//插入子类商品详情
+router.get('/insetAllCategorySubInfo', async (ctx) => {
+  fs.readFile('./dataJSON/category_sub.json', 'utf8', (error, data) => {
+    data = JSON.parse(data)
+    const CategorySub = mongoose.model('CategorySub')
+    data.RECORDS.map((value, index) => {
+      let newCategorySub = new CategorySub(value);
+      newCategorySub.save().then(() => {
+        console.log('数据插入成功，请查看数据库')
+      }).catch(error => {
+        console.log('数据插入失败！')
+      })
+    })
+  })
+  ctx.body = '正在插入数据...'
+})
+
+
+//**获取商品详情信息的接口
+router.post('/getDetailGoodsInfo', async (ctx) => {
+  try {
+    let goodsId = ctx.request.body.goodsId
+    const Goods = mongoose.model('Goods')
+    console.log(goodsId)
+    let result = await Goods.findOne({ ID: goodsId }).exec()
+    ctx.body = { code: 200, message: result }
+  } catch (error) {
+    ctx.body = { code: 500, message: error }
+  }
 })
 
 module.exports = router
