@@ -3,13 +3,13 @@
     <SearchBar></SearchBar>
     <!-- 商品分类区域 -->
     <div class="header-list">
-      <van-tabs v-model="active">
-        <van-tab v-for="(item,index) in headerData" :title="item" :key="index" sticky>
+      <van-tabs v-model="active" sticky swipeable>
+        <van-tab v-for="(item,index) in headerData" :title="item" :key="index">
           <div class="Condition-selection">
             <div class="selection">
               <span>销量：</span>
               <div class="switch">
-                  <van-switch v-model="checked" />
+                  <van-switch v-model="SalesVolume" />
               </div>
             </div>
             <div class="selection">
@@ -19,27 +19,28 @@
               </div>
             </div>
           </div>
+          <!-- 商品 --> 
+          <div class="goods-area">
+            <div id="leftMenu" class="left-menu">
+              <div v-for="(item,index) in googsList" :key="index" @click="clickMenu(index)" :class="{activeOption: menuIndex == index}">
+                <span>{{ item }}</span>
+              </div>
+            </div>
+            <div class="">
+              <van-list class="goods-detail">
+                <div class="goods-wrap" v-for="(item,index) in imagesData" :key="index">
+                  <img v-lazy="item.image" width="100%" />
+                  <div class="goods-name">{{ item.name }}</div>
+                  <span class="mallPrice">￥{{ item.price | moneyFilter }}</span>
+                  <span class="price">￥{{ item.mallPrice | moneyFilter }}</span>
+                </div>
+              </van-list>
+            </div>
+          </div>
         </van-tab>
       </van-tabs>
     </div>
-    <!-- 商品 -->
-    <div class="goods-area">
-      <div class="left-menu">
-        <div v-for="(item,index) in googsList" :key="index">
-          <span>{{ item }}</span>
-        </div>
-      </div>
-      <div class="">
-         <van-list class="goods-detail">
-          <div class="goods-wrap" v-for="(item,index) in imagesData" :key="index">
-            <img v-lazy="item.image" width="100%" />
-            <div class="goods-name">{{ item.name }}</div>
-            <span class="mallPrice">￥{{ item.price | moneyFilter }}</span>
-            <span class="price">￥{{ item.mallPrice | moneyFilter }}</span>
-          </div>
-        </van-list>
-      </div>
-    </div>
+
     <Footer></Footer>
   </div>
 </template>
@@ -58,9 +59,10 @@
         headerData : ['新鲜水果','中外名酒','营养奶品','食品饮料','个人护理'],
         googsList: ['全部', '热带水果', '时令水果', '苹果/梨子','柑橘橙柚'],
         active: 0,
-        checked: true,
-        low: false,
+        SalesVolume: true,//商品销量
+        low: false,//排行高低切换
         imagesData:[],
+        menuIndex: 0
       }
     },
     created(){
@@ -78,8 +80,15 @@
         console.log(e)
       })
     },
+    mounted() {
+      //获取窗口高度
+      let winHeight = document.documentElement.clientHeight
+      document.getElementById('leftMenu').style.height = winHeight - 42 + 'px'
+    },
     methods:{
-      
+      clickMenu(index) {
+        this.menuIndex = index
+      }
     },
     filters:{
       moneyFilter:function(val) {
@@ -135,9 +144,6 @@
     line-height: 1.173rem;
     border-bottom: 1px solid #ddd;
   }
-  .left-menu div:nth-child(1){
-    background: #eeeeee;
-  }
   .goods-detail{
     flex: 0 0 79%;
     display: flex;
@@ -170,6 +176,9 @@
   .price{
     color: #666;
     text-decoration: line-through;
+  }
+  .activeOption{
+    background: #eeeeee
   }
 </style>
 
