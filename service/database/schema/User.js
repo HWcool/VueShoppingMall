@@ -1,7 +1,9 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 let ObjectId = Schema.Types.ObjectId
+//引入bcrypy
 const bcrypt = require('bcrypt')
+//定义密码算法强度
 const SALT_WORK_FACTOR = 10
 
 //创建Schema
@@ -26,7 +28,6 @@ userSchema.pre('save', function (next) {
       this.password = hash
       next()
     })
-
   })
 })
 
